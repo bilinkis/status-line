@@ -151,8 +151,6 @@ function getUsageParts() {
     const cache = JSON.parse(fs.readFileSync(usageCachePath, "utf8"));
     const fetchedAt = new Date(cache.fetched_at).getTime();
     const cacheAge = Number.isFinite(fetchedAt) ? Date.now() - fetchedAt : Number.POSITIVE_INFINITY;
-    const staleSuffix = cacheAge > usageStaleMs ? " [stale]" : "";
-
     maybeRefreshUsageCache(cacheAge);
 
     const sh = cache?.five_hour;
@@ -161,13 +159,13 @@ function getUsageParts() {
     if (sh) {
       const left = Math.max(0, 100 - (sh.utilization ?? 0));
       const reset = sh.resets_at ? humanDiff(new Date(sh.resets_at) - Date.now()) : null;
-      sessionPart = `session ${left}% left${reset ? `, resets in ${reset}` : ""}${staleSuffix}`;
+      sessionPart = `session ${left}% left${reset ? `, resets in ${reset}` : ""}`;
     }
 
     if (wk) {
       const left = Math.max(0, 100 - (wk.utilization ?? 0));
       const reset = wk.resets_at ? humanDiff(new Date(wk.resets_at) - Date.now()) : null;
-      weeklyPart = `weekly ${left}% left${reset ? `, resets in ${reset}` : ""}${staleSuffix}`;
+      weeklyPart = `weekly ${left}% left${reset ? `, resets in ${reset}` : ""}`;
     }
   } catch {}
 
