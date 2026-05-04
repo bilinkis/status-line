@@ -46,7 +46,7 @@ The installer auto-detects `~/.codex/config.toml` and sets the recommended `[tui
 
 ```toml
 [tui]
-status_line = ["current-dir", "git-branch", "five-hour-limit", "weekly-limit", "model-with-reasoning", "codex-version"]
+status_line = ["current-dir", "git-branch", "run-state", "task-progress", "context-remaining", "five-hour-limit", "weekly-limit", "model-with-reasoning"]
 ```
 
 If you already have a `[tui]` section with `status_line` configured, it's left untouched.

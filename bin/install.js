@@ -62,10 +62,12 @@ function installCodex() {
   const RECOMMENDED = [
     "current-dir",
     "git-branch",
+    "run-state",
+    "task-progress",
+    "context-remaining",
     "five-hour-limit",
     "weekly-limit",
     "model-with-reasoning",
-    "codex-version",
   ];
 
   let toml = fs.readFileSync(CODEX_CONFIG, "utf8");

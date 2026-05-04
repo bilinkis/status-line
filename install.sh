@@ -29,7 +29,7 @@ if [ -f "$CODEX_CONFIG" ]; then
   node - "$CODEX_CONFIG" <<'NODE'
 const fs = require("fs");
 const file = process.argv[2];
-const RECOMMENDED = '["current-dir","git-branch","five-hour-limit","weekly-limit","model-with-reasoning","codex-version"]';
+const RECOMMENDED = '["current-dir","git-branch","run-state","task-progress","context-remaining","five-hour-limit","weekly-limit","model-with-reasoning"]';
 
 let toml = fs.readFileSync(file, "utf8");
 
