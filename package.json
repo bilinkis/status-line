@@ -1,0 +1,10 @@
+{
+  "name": "status-line",
+  "version": "1.0.0",
+  "description": "Real status bar for Claude Code, Codex, and other coding agents",
+  "bin": {
+    "status-line": "bin/install.js"
+  },
+  "keywords": ["claude-code", "codex", "status-line", "terminal"],
+  "license": "MIT"
+}
